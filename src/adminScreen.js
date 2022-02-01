@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {View,Text, StyleSheet, FlatList, TouchableOpacity, Button} from 'react-native'
+import {View,Text, StyleSheet, FlatList, TouchableOpacity, Button, SafeAreaView, ScrollView} from 'react-native'
 import { fireStore } from '../firebase';
 export default class AdminScreen extends Component {
 constructor(props){
@@ -52,9 +52,9 @@ componentDidMount() {
                 email: item.host.add3
             })
         }}>
-        <Text>ad soyad     {item.host.add1}</Text>
-        <Text>telefon:   {item.host.add2}</Text>
-        <Text>email:  {item.host.add3}</Text>
+        <Text>Ad Soyad:     {item.host.add1}</Text>
+        <Text>Cep Numarası:   {item.host.add2}</Text>
+        <Text>E-Mail:  {item.host.add3}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -64,8 +64,8 @@ componentDidMount() {
 render(){
 //{this.state.host.map((item)=> console.log(item.docId))}
 return (
-    
-<View>
+  
+<ScrollView>
   
 <FlatList
         data={this.state.host}
@@ -77,7 +77,7 @@ return (
        title='ÇIKIŞ'
     onPress={()=>{
         this.props.navigation.navigate("LoginScreen")}}></Button>
-</View>);
+</ScrollView>);
 
 }
 

@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {View,Text, TextInput, Button, ScrollView, StyleSheet} from 'react-native'
+import {View,Text, TextInput, Button, ScrollView, StyleSheet, SafeAreaView} from 'react-native'
 import { fireStore } from '../firebase'
 // import { fireStore } from '../firebase';
 export default class FormScreen extends Component {
@@ -63,9 +63,10 @@ saveHandler = () =>{
 
 render(){
 return (
-  <View style={{flex:1}}>
+  
+  <SafeAreaView style={{flex:1}}>
 <View style={{flex:1,flexDirection:"column",alignItems:"flex-start", justifyContent:"flex-start", backgroundColor:"white"}}>
-<Text style={{margin:10, flex:1}}>CV BİLGİLERİ</Text>
+<Text style={{margin:10, flex:1, padding:10, fontSize:20}}>CV BİLGİLERİ</Text>
 <ScrollView>
 <View style={{flexDirection:"row", flex:1}}> 
 <Text  style={{padding:15}}>Ad Soyad : </Text>
@@ -110,7 +111,7 @@ return (
         </ScrollView>
 <ScrollView>
     <ScrollView>
-  <View style={this.style.text}>
+  <View >
 <Text  style={{padding:15}}>Eğitim Bilgileri (Okul/Dönem) : </Text>
 <TextInput
           style={this.style.textinput}
@@ -124,8 +125,8 @@ return (
         </View>
         </ScrollView>
         </ScrollView>
-        <ScrollView style={{flexDirection:"row", flex:9}}> 
-  <View  style={{flexDirection:"row", flex:9}}>
+        <ScrollView style={{flexDirection:"row"}}> 
+  <View  >
 
 <Text  style={{padding:15}}>İş Tecrübesi (İşyeri-Yıl-Açıklama) : </Text>
 <TextInput
@@ -155,7 +156,7 @@ return (
         ></TextInput>
         </View>
         </ScrollView>
-<View style={{flexDirection:"row", flex:1, margin:10}}>
+<View style={{flexDirection:"row-reverse", justifyContent:"space-between",  margin:10}}>
         <Button
      
         title='Kaydet'
@@ -168,7 +169,7 @@ return (
         </Button>
         </View>
 </View>
-</View>);
+</SafeAreaView>);
 }
 
 style= StyleSheet.create({
@@ -181,6 +182,7 @@ textinput:{
   borderWidth:2, 
   //borderBottomColor:"black",
   borderColor:"white",
+  fontSize:15
 
 
 },
